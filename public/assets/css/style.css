@@ -1,0 +1,32 @@
+.jumbotron {
+  /*background-image: url('baby_burgers.png');*/
+  background-image: url('Playboy_Pink_2.gif');
+  background-color: lightcyan;
+  font-family: 'Marck Script', cursive;
+}
+.jumbotron h1{
+  font-size: 113px;
+}
+
+.jumbotron p {
+  font-size: 35px;
+}
+/*http://alllayedout.com/Layout_Maker/Backgrounds/Cute/Playboy_Pink_2_gif*/
+/*}*/
+
+body {
+  background-image: url('restaurant.png');
+}
+
+.container {
+  color: darkturquoise;
+}
+
+.btn-primary {
+  background-color: ghostwhite;;
+  color: darkturquoise;
+}
+
+.panel-info {
+  background-color: azure;
+}

@@ -1,0 +1,67 @@
+<div class="jumbotron" style = "background-color: lightcyan","text-align: center">
+  <div class="container">
+    <h1>Hef's Hamburgers</h1>
+    {{!-- <img src="/assets/css/Playboy_Pink_2.gif"> --}}
+
+    <p style="text-align">"You can't win 'em all"</p>
+  </div>
+</div>
+
+<div class="col-lg-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Create Your Own Burger Fantasy!</h3>
+    </div>
+    <div class="panel-body">
+      <form class="create-update-form" action="burgers/create" method="POST">
+        <div class="form-group">
+          <label for="newBurger">Sexy Burger Name:</label>
+          <input type="hidden" name="devoured" value="0">
+          <input type="text" id="newBurger" name="burger_name">
+          <button type="submit" class="btn btn-primary center-block">Add Burger</button>
+        </div>   
+      </form>
+    </div>
+  </div> 
+</div>
+
+<div class="col-lg-6">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Burgers that desire you to consume them!</h3>
+    </div>
+    <div class="panel-body">
+      {{#each burgers}}
+        {{#unless this.devoured}}
+        <div class = "well">
+            
+            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="true">
+              <br />
+              <span>{{this.id}}. {{this.burger_name}}<button type="submit" class="btn btn-primary" style = "margin-left: 20px;">Eat it!</button></span>
+            </form>
+          <br />
+        </div>  
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-6">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Spent Burgers!</h3>
+    </div>
+    <div class="panel-body">
+      {{#each burgers}}
+        {{#if this.devoured}}
+           {{this.id}}. {{this.burger_name}}
+            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="false">
+            </form>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>    
+</div>
